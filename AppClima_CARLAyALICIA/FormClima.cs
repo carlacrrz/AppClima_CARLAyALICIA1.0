@@ -1,11 +1,19 @@
 ﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 public partial class FormClima : Form
 {
+    [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+    private static extern IntPtr CreateRoundRectRgn(
+        int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
+        int nWidthEllipse, int nHeightEllipse
+    );
+
+
     private ClienteCalidadAire cliente;
     private CalculadorMeteorologico calculador;
     private Timer timerActualizacion;
@@ -16,8 +24,39 @@ public partial class FormClima : Form
         InitializeComponent();
         cliente = new ClienteCalidadAire();
         muestrasActuales = new List<Muestra>();
+        ConfigurarInterfaz();
         ConfigurarTimer();
+        ConfigurarEventos();
         CargarDatosIniciales();
+    }
+
+    private void ConfigurarInterfaz()
+    {
+        this.BackColor = Color.FromArgb(0, 122, 255);
+        this.StartPosition = FormStartPosition.CenterScreen;
+        this.FormBorderStyle = FormBorderStyle.None;
+
+        ConfigurarBordesRedondos();
+        this.Resize += (s, e) => ConfigurarBordesRedondos();
+    }
+
+    private void ConfigurarBordesRedondos()
+    {
+        // Form principal - bordes redondos
+        this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 30, 30));
+
+        // Paneles
+        HacerBordesRedondos(panel1, 20);
+        HacerBordesRedondos(panelCalidadAire, 20);
+
+        // Botones
+        HacerBordesRedondos(btnVerSensores, 15);
+        HacerBordesRedondos(btnCerrar, 17);
+    }
+
+    private void HacerBordesRedondos(Control control, int radio)
+    {
+        control.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, control.Width, control.Height, radio, radio));
     }
 
     private void ConfigurarTimer()
@@ -26,6 +65,12 @@ public partial class FormClima : Form
         timerActualizacion.Interval = 30000;
         timerActualizacion.Tick += async (s, e) => await ActualizarDatos();
         timerActualizacion.Start();
+    }
+
+    private void ConfigurarEventos()
+    {
+        btnVerSensores.Click += btnVerSensores_Click;
+        btnCerrar.Click += btnCerrar_Click;
     }
 
     private async void CargarDatosIniciales()
@@ -79,9 +124,10 @@ public partial class FormClima : Form
         ActualizarColoresCalidadAire(calidadAire);
     }
 
+   
     private string ObtenerDescripcionClima()
     {
-        if (calculador == null) return "Cargando";
+        if (calculador == null) return "Cargando...";
 
         var temp = calculador.CalcularTemperaturaMedia();
         var humedad = calculador.CalcularHumedadRelativaMedia();
@@ -126,9 +172,9 @@ public partial class FormClima : Form
 
         var pm25 = calidadAire.ContainsKey("PM2.5") ? calidadAire["PM2.5"] : 0;
 
-        if (pm25 < 12) return "Buena";
-        if (pm25 < 35) return "Moderada";
-        if (pm25 < 55) return "Poco saludable";
+        if (pm25 < 12) return "La calidad de aire es buena";
+        if (pm25 < 35) return "La calidad de aire es moderada";
+        if (pm25 < 55) return "La calidad de aire es poco saludable";
         return "Mala";
     }
 
@@ -171,4 +217,10 @@ public partial class FormClima : Form
     {
         Application.Exit();
     }
+
+    private void lblIndiceCalidadAire_Click(object sender, EventArgs e)
+    {
+
+    }
+
 }

@@ -8,6 +8,6 @@ static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new FormClima()); // Ahora inicia con la app de clima
+        Application.Run(new FormClima()); 
     }
 }
