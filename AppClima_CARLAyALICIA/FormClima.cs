@@ -42,14 +42,12 @@ public partial class FormClima : Form
 
     private void ConfigurarBordesRedondos()
     {
-        // Form principal - bordes redondos
+
         this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 30, 30));
 
-        // Paneles
         HacerBordesRedondos(panel1, 20);
         HacerBordesRedondos(panelCalidadAire, 20);
 
-        // Botones
         HacerBordesRedondos(btnVerSensores, 15);
         HacerBordesRedondos(btnCerrar, 17);
     }
@@ -105,7 +103,7 @@ public partial class FormClima : Form
         lblTemperaturaPrincipal.Text = calculador.CalcularTemperaturaMedia().ToString("F0") + "°";
         lblDescripcionClima.Text = ObtenerDescripcionClima();
         lblUbicacion.Text = "Puerto Peñasco, Son.";
-        lblMaxMin.Text = (calculador.CalcularTemperaturaMedia() + 2).ToString("F0") + "° / " + (calculador.CalcularTemperaturaMedia() - 2).ToString("F0") + "°";
+        lblMaxMin.Text = (calculador.CalcularTemperaturaMedia() + 2).ToString("Maxima: 0") + "° / " + (calculador.CalcularTemperaturaMedia() - 2).ToString("Minima: 0") + "°";
 
         lblSensacionTermicaValor.Text = calculador.CalcularIndiceCalor().ToString("F1") + "°";
         lblProbabilidadLluviaValor.Text = CalcularProbabilidadLluvia().ToString("F0") + "%";
@@ -137,7 +135,6 @@ public partial class FormClima : Form
         if (lluvia > 1) return "Lluvia ligera";
         if (humedad > 80) return "Húmedo";
         if (temp > 30) return "Soleado";
-        if (temp > 20) return "Parcialmente nublado";
         return "Despejado";
     }
 
@@ -193,9 +190,9 @@ public partial class FormClima : Form
 
         switch (calidad)
         {
-            case "Buena": color = Color.FromArgb(76, 175, 80); break;
-            case "Moderada": color = Color.FromArgb(255, 193, 7); break;
-            case "Poco saludable": color = Color.FromArgb(255, 152, 0); break;
+            case "La calidad de aire es buena": color = Color.FromArgb(76, 175, 80); break;
+            case "La calidad de aire es moderada": color = Color.FromArgb(255, 193, 7); break;
+            case "La calidad de aire es poco saludable": color = Color.FromArgb(255, 152, 0); break;
             case "Mala": color = Color.FromArgb(244, 67, 54); break;
             default: color = Color.Gray; break;
         }
