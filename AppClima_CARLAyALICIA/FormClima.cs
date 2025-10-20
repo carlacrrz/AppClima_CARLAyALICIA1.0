@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 public partial class FormClima : Form
@@ -19,15 +21,21 @@ public partial class FormClima : Form
     private Timer timerActualizacion;
     private List<Muestra> muestrasActuales;
 
+
     public FormClima()
     {
         InitializeComponent();
+
         cliente = new ClienteCalidadAire();
         muestrasActuales = new List<Muestra>();
         ConfigurarInterfaz();
         ConfigurarTimer();
         ConfigurarEventos();
         CargarDatosIniciales();
+        ConfigurarBotonCerrar();
+        ConfigurarLabelCentrado();
+
+        this.Load += (s, e) => AgregarIconosSencillos();
     }
 
     private void ConfigurarInterfaz()
@@ -45,10 +53,8 @@ public partial class FormClima : Form
 
         this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 30, 30));
 
-        HacerBordesRedondos(panel1, 20);
+        HacerBordesRedondos(panelEstadisticas, 20);
         HacerBordesRedondos(panelCalidadAire, 20);
-
-        HacerBordesRedondos(btnVerSensores, 15);
         HacerBordesRedondos(btnCerrar, 17);
     }
 
@@ -67,7 +73,6 @@ public partial class FormClima : Form
 
     private void ConfigurarEventos()
     {
-        btnVerSensores.Click += btnVerSensores_Click;
         btnCerrar.Click += btnCerrar_Click;
     }
 
@@ -201,15 +206,94 @@ public partial class FormClima : Form
         lblIndiceCalidadAire.ForeColor = color;
     }
 
-    private void btnVerSensores_Click(object sender, EventArgs e)
+    private void AgregarIconosSencillos()
     {
-        var formSensores = new Form1();
-        formSensores.Show();
-        this.Hide();
+        var iconosMap = new Dictionary<string, string>
+    {
+        { "lblSensacionTermina", "termostato.png" },
+        { "lblProbabilidadLluvia", "lluvia.png" },
+        { "lblHumedad", "humedad.png" },
+        { "lblPresion", "medir.png" },
+        { "lblPuntoRocio", "rocio.png" },
+        { "lblIndiceUV", "indice-uv.png" },
+        { "lblVelocidadViento", "ventoso.png" },
+        { "lblDireccionViento", "direccion-del-viento.png" },
+        { "lblVisibilidad", "visibilidad.png" },
+        { "label1", "aire.png" }
+    };
 
-        formSensores.FormClosed += (s, args) => this.Show();
+        string carpetaIconos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "iconos");
+
+        foreach (var item in iconosMap)
+        {
+            Control[] labelsEncontrados = this.Controls.Find(item.Key, true);
+
+            if (labelsEncontrados.Length > 0 && labelsEncontrados[0] is Label label)
+            {
+                string rutaIcono = Path.Combine(carpetaIconos, item.Value);
+
+                if (File.Exists(rutaIcono))
+                {
+                    AgregarIconoALabel(label, rutaIcono, item.Key);
+                }
+            }
+        }
     }
 
+    private void AgregarIconoALabel(Label label, string rutaIcono, string nombreLabel)
+    {
+        try
+        {
+            PictureBox icono = new PictureBox();
+            icono.Name = label.Name + "icono_";
+            icono.Size = new Size(20, 20);
+            icono.Location = new Point(label.Right, label.Top + 5);
+            icono.SizeMode = PictureBoxSizeMode.Zoom;
+            icono.BackColor = Color.Transparent;
+            icono.Image = Image.FromFile(rutaIcono);
+
+            label.Parent.Controls.Add(icono);
+            icono.BringToFront();
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error {ex.Message}");
+        }
+    }
+
+    private void ConfigurarLabelCentrado()
+    {
+        lblCalidadAire.TextAlign = ContentAlignment.MiddleCenter;
+        lblCalidadAire.AutoSize = false;
+        lblCalidadAire.Size = panelCalidadAire.Size;
+
+        lblCalidadAire.TextChanged += (s, e) => CentrarLabelEnPanel();
+
+        panelCalidadAire.SizeChanged += (s, e) => CentrarLabelEnPanel();
+    }
+
+    private void CentrarLabelEnPanel()
+    {
+        lblCalidadAire.Location = new Point(
+            (panelCalidadAire.Width - lblCalidadAire.Width) / 2,
+            (panelCalidadAire.Height - lblCalidadAire.Height) / 2
+        );
+    }
+
+    private void ConfigurarBotonCerrar()
+    {
+        btnCerrar.FlatStyle = FlatStyle.Flat;
+        btnCerrar.FlatAppearance.BorderSize = 0;
+        btnCerrar.BackColor = Color.Transparent;
+        btnCerrar.ForeColor = Color.White;
+        btnCerrar.Text = "✕"; // o "X"
+        btnCerrar.Font = new Font("Arial", 14, FontStyle.Bold);
+        btnCerrar.Cursor = Cursors.Hand;
+
+        btnCerrar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        btnCerrar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+    }
     private void btnCerrar_Click(object sender, EventArgs e)
     {
         Application.Exit();
@@ -220,4 +304,13 @@ public partial class FormClima : Form
 
     }
 
+    private void panelEstadisticas_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void label1_Click(object sender, EventArgs e)
+    {
+
+    }
 }

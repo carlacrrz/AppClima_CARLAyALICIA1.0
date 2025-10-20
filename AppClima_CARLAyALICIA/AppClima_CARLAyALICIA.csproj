@@ -80,15 +80,8 @@
   <ItemGroup>
     <Compile Include="clases\CalculadorMeteorologico.cs" />
     <Compile Include="clases\ClienteCalidadAire.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="clases\InformacionSensor.cs" />
     <Compile Include="clases\Program.cs" />
-    <Compile Include="clases\Programa.cs" />
     <Compile Include="FormClima.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +124,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\foto21.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\iconos\aire.png" />
+    <Content Include="bin\Debug\iconos\direccion-del-viento.png" />
+    <Content Include="bin\Debug\iconos\gota-de-rocio.png" />
+    <Content Include="bin\Debug\iconos\hoja.png" />
+    <Content Include="bin\Debug\iconos\humedad.png" />
+    <Content Include="bin\Debug\iconos\Image1.png" />
+    <Content Include="bin\Debug\iconos\indice-uv.png" />
+    <Content Include="bin\Debug\iconos\lluvia.png" />
+    <Content Include="bin\Debug\iconos\medir.png" />
+    <Content Include="bin\Debug\iconos\rocio.png" />
+    <Content Include="bin\Debug\iconos\termostato.png" />
+    <Content Include="bin\Debug\iconos\ultravioleta.png" />
+    <Content Include="bin\Debug\iconos\ventoso.png" />
+    <Content Include="bin\Debug\iconos\visibilidad.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -43,14 +43,13 @@ partial class FormClima
             this.lblHumedad = new System.Windows.Forms.Label();
             this.lblIndiceUV = new System.Windows.Forms.Label();
             this.lblVisibilidad = new System.Windows.Forms.Label();
-            this.btnVerSensores = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.imageListClima = new System.Windows.Forms.ImageList(this.components);
+            this.panelEstadisticas = new System.Windows.Forms.Panel();
             this.lblIndiceCalidadAire = new System.Windows.Forms.Label();
-            this.panelCalidadAire = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.panelCalidadAire = new System.Windows.Forms.Panel();
+            this.panelEstadisticas.SuspendLayout();
             this.panelCalidadAire.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +70,7 @@ partial class FormClima
             this.lblVisibilidadValor.BackColor = System.Drawing.Color.Transparent;
             this.lblVisibilidadValor.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVisibilidadValor.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblVisibilidadValor.Location = new System.Drawing.Point(729, 351);
+            this.lblVisibilidadValor.Location = new System.Drawing.Point(737, 352);
             this.lblVisibilidadValor.Name = "lblVisibilidadValor";
             this.lblVisibilidadValor.Size = new System.Drawing.Size(43, 50);
             this.lblVisibilidadValor.TabIndex = 1;
@@ -83,7 +82,7 @@ partial class FormClima
             this.lblVelocidadVientoValor.BackColor = System.Drawing.Color.Transparent;
             this.lblVelocidadVientoValor.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVelocidadVientoValor.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblVelocidadVientoValor.Location = new System.Drawing.Point(50, 351);
+            this.lblVelocidadVientoValor.Location = new System.Drawing.Point(58, 352);
             this.lblVelocidadVientoValor.Name = "lblVelocidadVientoValor";
             this.lblVelocidadVientoValor.Size = new System.Drawing.Size(43, 50);
             this.lblVelocidadVientoValor.TabIndex = 2;
@@ -120,7 +119,7 @@ partial class FormClima
             this.lblSensacionTermicaValor.BackColor = System.Drawing.Color.Transparent;
             this.lblSensacionTermicaValor.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSensacionTermicaValor.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblSensacionTermicaValor.Location = new System.Drawing.Point(50, 151);
+            this.lblSensacionTermicaValor.Location = new System.Drawing.Point(58, 152);
             this.lblSensacionTermicaValor.Name = "lblSensacionTermicaValor";
             this.lblSensacionTermicaValor.Size = new System.Drawing.Size(43, 50);
             this.lblSensacionTermicaValor.TabIndex = 5;
@@ -132,7 +131,7 @@ partial class FormClima
             this.lblPuntoRocioValor.BackColor = System.Drawing.Color.Transparent;
             this.lblPuntoRocioValor.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPuntoRocioValor.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblPuntoRocioValor.Location = new System.Drawing.Point(359, 255);
+            this.lblPuntoRocioValor.Location = new System.Drawing.Point(367, 256);
             this.lblPuntoRocioValor.Name = "lblPuntoRocioValor";
             this.lblPuntoRocioValor.Size = new System.Drawing.Size(43, 50);
             this.lblPuntoRocioValor.TabIndex = 6;
@@ -144,7 +143,7 @@ partial class FormClima
             this.lblProbabilidadLluviaValor.BackColor = System.Drawing.Color.Transparent;
             this.lblProbabilidadLluviaValor.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProbabilidadLluviaValor.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblProbabilidadLluviaValor.Location = new System.Drawing.Point(359, 151);
+            this.lblProbabilidadLluviaValor.Location = new System.Drawing.Point(367, 152);
             this.lblProbabilidadLluviaValor.Name = "lblProbabilidadLluviaValor";
             this.lblProbabilidadLluviaValor.Size = new System.Drawing.Size(43, 50);
             this.lblProbabilidadLluviaValor.TabIndex = 7;
@@ -156,7 +155,7 @@ partial class FormClima
             this.lblPresionValor.BackColor = System.Drawing.Color.Transparent;
             this.lblPresionValor.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPresionValor.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblPresionValor.Location = new System.Drawing.Point(50, 255);
+            this.lblPresionValor.Location = new System.Drawing.Point(58, 256);
             this.lblPresionValor.Name = "lblPresionValor";
             this.lblPresionValor.Size = new System.Drawing.Size(43, 50);
             this.lblPresionValor.TabIndex = 8;
@@ -181,7 +180,7 @@ partial class FormClima
             this.lblIndiceUVValor.BackColor = System.Drawing.Color.Transparent;
             this.lblIndiceUVValor.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIndiceUVValor.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblIndiceUVValor.Location = new System.Drawing.Point(729, 255);
+            this.lblIndiceUVValor.Location = new System.Drawing.Point(737, 256);
             this.lblIndiceUVValor.Name = "lblIndiceUVValor";
             this.lblIndiceUVValor.Size = new System.Drawing.Size(43, 50);
             this.lblIndiceUVValor.TabIndex = 10;
@@ -193,7 +192,7 @@ partial class FormClima
             this.lblHumedadValor.BackColor = System.Drawing.Color.Transparent;
             this.lblHumedadValor.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHumedadValor.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblHumedadValor.Location = new System.Drawing.Point(729, 151);
+            this.lblHumedadValor.Location = new System.Drawing.Point(737, 152);
             this.lblHumedadValor.Name = "lblHumedadValor";
             this.lblHumedadValor.Size = new System.Drawing.Size(43, 50);
             this.lblHumedadValor.TabIndex = 12;
@@ -205,7 +204,7 @@ partial class FormClima
             this.lblDireccionVientoValor.BackColor = System.Drawing.Color.Transparent;
             this.lblDireccionVientoValor.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccionVientoValor.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblDireccionVientoValor.Location = new System.Drawing.Point(359, 351);
+            this.lblDireccionVientoValor.Location = new System.Drawing.Point(367, 352);
             this.lblDireccionVientoValor.Name = "lblDireccionVientoValor";
             this.lblDireccionVientoValor.Size = new System.Drawing.Size(43, 50);
             this.lblDireccionVientoValor.TabIndex = 13;
@@ -230,7 +229,7 @@ partial class FormClima
             this.lblSensacionTermina.BackColor = System.Drawing.Color.Transparent;
             this.lblSensacionTermina.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSensacionTermina.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblSensacionTermina.Location = new System.Drawing.Point(50, 116);
+            this.lblSensacionTermina.Location = new System.Drawing.Point(58, 117);
             this.lblSensacionTermina.Name = "lblSensacionTermina";
             this.lblSensacionTermina.Size = new System.Drawing.Size(336, 50);
             this.lblSensacionTermina.TabIndex = 15;
@@ -242,7 +241,7 @@ partial class FormClima
             this.lblPresion.BackColor = System.Drawing.Color.Transparent;
             this.lblPresion.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPresion.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPresion.Location = new System.Drawing.Point(50, 216);
+            this.lblPresion.Location = new System.Drawing.Point(58, 217);
             this.lblPresion.Name = "lblPresion";
             this.lblPresion.Size = new System.Drawing.Size(148, 50);
             this.lblPresion.TabIndex = 16;
@@ -254,7 +253,7 @@ partial class FormClima
             this.lblVelocidadviento.BackColor = System.Drawing.Color.Transparent;
             this.lblVelocidadviento.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVelocidadviento.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblVelocidadviento.Location = new System.Drawing.Point(50, 316);
+            this.lblVelocidadviento.Location = new System.Drawing.Point(58, 317);
             this.lblVelocidadviento.Name = "lblVelocidadviento";
             this.lblVelocidadviento.Size = new System.Drawing.Size(364, 50);
             this.lblVelocidadviento.TabIndex = 17;
@@ -266,7 +265,7 @@ partial class FormClima
             this.lblProbabilidadLluvia.BackColor = System.Drawing.Color.Transparent;
             this.lblProbabilidadLluvia.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProbabilidadLluvia.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblProbabilidadLluvia.Location = new System.Drawing.Point(359, 116);
+            this.lblProbabilidadLluvia.Location = new System.Drawing.Point(367, 117);
             this.lblProbabilidadLluvia.Name = "lblProbabilidadLluvia";
             this.lblProbabilidadLluvia.Size = new System.Drawing.Size(388, 50);
             this.lblProbabilidadLluvia.TabIndex = 18;
@@ -278,7 +277,7 @@ partial class FormClima
             this.lblPuntoRocio.BackColor = System.Drawing.Color.Transparent;
             this.lblPuntoRocio.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPuntoRocio.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPuntoRocio.Location = new System.Drawing.Point(359, 216);
+            this.lblPuntoRocio.Location = new System.Drawing.Point(367, 217);
             this.lblPuntoRocio.Name = "lblPuntoRocio";
             this.lblPuntoRocio.Size = new System.Drawing.Size(228, 50);
             this.lblPuntoRocio.TabIndex = 19;
@@ -290,7 +289,7 @@ partial class FormClima
             this.lblDireccionViento.BackColor = System.Drawing.Color.Transparent;
             this.lblDireccionViento.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccionViento.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDireccionViento.Location = new System.Drawing.Point(359, 316);
+            this.lblDireccionViento.Location = new System.Drawing.Point(367, 317);
             this.lblDireccionViento.Name = "lblDireccionViento";
             this.lblDireccionViento.Size = new System.Drawing.Size(359, 50);
             this.lblDireccionViento.TabIndex = 20;
@@ -302,7 +301,7 @@ partial class FormClima
             this.lblHumedad.BackColor = System.Drawing.Color.Transparent;
             this.lblHumedad.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHumedad.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblHumedad.Location = new System.Drawing.Point(729, 116);
+            this.lblHumedad.Location = new System.Drawing.Point(737, 117);
             this.lblHumedad.Name = "lblHumedad";
             this.lblHumedad.Size = new System.Drawing.Size(187, 50);
             this.lblHumedad.TabIndex = 21;
@@ -314,7 +313,7 @@ partial class FormClima
             this.lblIndiceUV.BackColor = System.Drawing.Color.Transparent;
             this.lblIndiceUV.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIndiceUV.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblIndiceUV.Location = new System.Drawing.Point(729, 216);
+            this.lblIndiceUV.Location = new System.Drawing.Point(737, 217);
             this.lblIndiceUV.Name = "lblIndiceUV";
             this.lblIndiceUV.Size = new System.Drawing.Size(184, 50);
             this.lblIndiceUV.TabIndex = 22;
@@ -326,80 +325,82 @@ partial class FormClima
             this.lblVisibilidad.BackColor = System.Drawing.Color.Transparent;
             this.lblVisibilidad.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVisibilidad.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblVisibilidad.Location = new System.Drawing.Point(729, 316);
+            this.lblVisibilidad.Location = new System.Drawing.Point(737, 317);
             this.lblVisibilidad.Name = "lblVisibilidad";
             this.lblVisibilidad.Size = new System.Drawing.Size(207, 50);
             this.lblVisibilidad.TabIndex = 23;
             this.lblVisibilidad.Text = "Visibilidad ";
             // 
-            // btnVerSensores
-            // 
-            this.btnVerSensores.BackColor = System.Drawing.Color.DimGray;
-            this.btnVerSensores.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerSensores.Location = new System.Drawing.Point(699, 447);
-            this.btnVerSensores.Name = "btnVerSensores";
-            this.btnVerSensores.Size = new System.Drawing.Size(159, 46);
-            this.btnVerSensores.TabIndex = 24;
-            this.btnVerSensores.Text = "Ver Sensores";
-            this.btnVerSensores.UseVisualStyleBackColor = false;
-            // 
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.Location = new System.Drawing.Point(867, 12);
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(885, 0);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(56, 42);
+            this.btnCerrar.Size = new System.Drawing.Size(70, 51);
             this.btnCerrar.TabIndex = 25;
             this.btnCerrar.Text = "X";
             this.btnCerrar.UseVisualStyleBackColor = false;
             // 
-            // imageList1
+            // imageListClima
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListClima.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageListClima.ImageSize = new System.Drawing.Size(24, 24);
+            this.imageListClima.TransparentColor = System.Drawing.Color.Black;
             // 
-            // panel1
+            // panelEstadisticas
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.lblIndiceCalidadAire);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lblProbabilidadLluviaValor);
-            this.panel1.Controls.Add(this.lblPresionValor);
-            this.panel1.Controls.Add(this.btnVerSensores);
-            this.panel1.Controls.Add(this.lblVisibilidadValor);
-            this.panel1.Controls.Add(this.lblVelocidadVientoValor);
-            this.panel1.Controls.Add(this.lblSensacionTermicaValor);
-            this.panel1.Controls.Add(this.lblVisibilidad);
-            this.panel1.Controls.Add(this.lblPuntoRocioValor);
-            this.panel1.Controls.Add(this.lblIndiceUV);
-            this.panel1.Controls.Add(this.lblIndiceUVValor);
-            this.panel1.Controls.Add(this.lblHumedad);
-            this.panel1.Controls.Add(this.lblHumedadValor);
-            this.panel1.Controls.Add(this.lblDireccionViento);
-            this.panel1.Controls.Add(this.lblDireccionVientoValor);
-            this.panel1.Controls.Add(this.lblPuntoRocio);
-            this.panel1.Controls.Add(this.lblSensacionTermina);
-            this.panel1.Controls.Add(this.lblProbabilidadLluvia);
-            this.panel1.Controls.Add(this.lblPresion);
-            this.panel1.Controls.Add(this.lblVelocidadviento);
-            this.panel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel1.Location = new System.Drawing.Point(0, 351);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(946, 556);
-            this.panel1.TabIndex = 16;
+            this.panelEstadisticas.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelEstadisticas.Controls.Add(this.lblIndiceCalidadAire);
+            this.panelEstadisticas.Controls.Add(this.label1);
+            this.panelEstadisticas.Controls.Add(this.lblProbabilidadLluviaValor);
+            this.panelEstadisticas.Controls.Add(this.lblPresionValor);
+            this.panelEstadisticas.Controls.Add(this.lblVisibilidadValor);
+            this.panelEstadisticas.Controls.Add(this.lblVelocidadVientoValor);
+            this.panelEstadisticas.Controls.Add(this.lblSensacionTermicaValor);
+            this.panelEstadisticas.Controls.Add(this.lblVisibilidad);
+            this.panelEstadisticas.Controls.Add(this.lblPuntoRocioValor);
+            this.panelEstadisticas.Controls.Add(this.lblIndiceUV);
+            this.panelEstadisticas.Controls.Add(this.lblIndiceUVValor);
+            this.panelEstadisticas.Controls.Add(this.lblHumedad);
+            this.panelEstadisticas.Controls.Add(this.lblHumedadValor);
+            this.panelEstadisticas.Controls.Add(this.lblDireccionViento);
+            this.panelEstadisticas.Controls.Add(this.lblDireccionVientoValor);
+            this.panelEstadisticas.Controls.Add(this.lblPuntoRocio);
+            this.panelEstadisticas.Controls.Add(this.lblSensacionTermina);
+            this.panelEstadisticas.Controls.Add(this.lblProbabilidadLluvia);
+            this.panelEstadisticas.Controls.Add(this.lblPresion);
+            this.panelEstadisticas.Controls.Add(this.lblVelocidadviento);
+            this.panelEstadisticas.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelEstadisticas.Location = new System.Drawing.Point(0, 351);
+            this.panelEstadisticas.Name = "panelEstadisticas";
+            this.panelEstadisticas.Size = new System.Drawing.Size(946, 556);
+            this.panelEstadisticas.TabIndex = 16;
+            this.panelEstadisticas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEstadisticas_Paint);
             // 
             // lblIndiceCalidadAire
             // 
             this.lblIndiceCalidadAire.AutoSize = true;
             this.lblIndiceCalidadAire.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIndiceCalidadAire.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblIndiceCalidadAire.Location = new System.Drawing.Point(48, 430);
+            this.lblIndiceCalidadAire.Location = new System.Drawing.Point(56, 431);
             this.lblIndiceCalidadAire.Name = "lblIndiceCalidadAire";
             this.lblIndiceCalidadAire.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblIndiceCalidadAire.Size = new System.Drawing.Size(43, 50);
             this.lblIndiceCalidadAire.TabIndex = 16;
             this.lblIndiceCalidadAire.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(58, 402);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(272, 50);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Calidad de aire";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panelCalidadAire
             // 
@@ -412,17 +413,6 @@ partial class FormClima
             this.panelCalidadAire.Size = new System.Drawing.Size(614, 115);
             this.panelCalidadAire.TabIndex = 16;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(50, 401);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(272, 50);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Calidad de aire";
-            // 
             // FormClima
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -434,7 +424,7 @@ partial class FormClima
             this.Controls.Add(this.panelCalidadAire);
             this.Controls.Add(this.lblMaxMin);
             this.Controls.Add(this.lblDescripcionClima);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelEstadisticas);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblTemperaturaPrincipal);
             this.Controls.Add(this.lblUbicacion);
@@ -444,8 +434,8 @@ partial class FormClima
             this.Name = "FormClima";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "App de Clima";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelEstadisticas.ResumeLayout(false);
+            this.panelEstadisticas.PerformLayout();
             this.panelCalidadAire.ResumeLayout(false);
             this.panelCalidadAire.PerformLayout();
             this.ResumeLayout(false);
@@ -477,10 +467,9 @@ partial class FormClima
     private Label lblHumedad;
     private Label lblIndiceUV;
     private Label lblVisibilidad;
-    private Button btnVerSensores;
     private Button btnCerrar;
-    private ImageList imageList1;
-    private Panel panel1;
+    private ImageList imageListClima;
+    private Panel panelEstadisticas;
     private Panel panelCalidadAire;
     private Label lblIndiceCalidadAire;
     private Label label1;
