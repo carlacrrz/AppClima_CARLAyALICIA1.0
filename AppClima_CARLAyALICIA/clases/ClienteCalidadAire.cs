@@ -48,16 +48,4 @@ public class ClienteCalidadAire
         return JsonSerializer.Deserialize<Muestras>(contenido);
     }
 
-    public async Task<bool> VerificarSaludAsync()
-    {
-        try
-        {
-            var respuesta = await _clienteHttp.GetAsync("/health");
-            return respuesta.IsSuccessStatusCode;
-        }
-        catch
-        {
-            return false;
-        }
-    }
 }

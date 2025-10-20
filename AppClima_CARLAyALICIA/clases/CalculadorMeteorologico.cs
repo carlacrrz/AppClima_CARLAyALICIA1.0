@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//clase para obtener variables de sensores y calular datos meteorologicos
 public class CalculadorMeteorologico
 {
     private List<Muestra> _muestras;
@@ -136,21 +135,5 @@ public class CalculadorMeteorologico
         if (co.Any()) calidad.Add("CO", co.Average());
 
         return calidad;
-    }
-
-    public string ObtenerResumenMeteorologico()
-    {
-        var temperatura = CalcularTemperaturaMedia();
-        var humedad = CalcularHumedadRelativaMedia();
-        var puntoRocio = CalcularPuntoRocio();
-        var indiceCalor = CalcularIndiceCalor();
-        var uv = CalcularIndiceUVMaximo();
-        var direccionViento = ObtenerDireccionVientoPredominante();
-        var velocidadViento = CalcularVelocidadVientoMedia();
-        var precipitacion = CalcularPrecipitacionAcumulada();
-
-        return $"Temperatura: {temperatura}°C, Humedad: {humedad}%, " +
-               $"Viento: {velocidadViento} m/s {direccionViento}, " +
-               $"UV: {uv}, Precipitación: {precipitacion} mm";
     }
 }

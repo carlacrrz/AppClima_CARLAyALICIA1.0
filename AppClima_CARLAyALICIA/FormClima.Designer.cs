@@ -105,11 +105,11 @@ partial class FormClima
             // 
             this.lblTemperaturaPrincipal.AutoSize = true;
             this.lblTemperaturaPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.lblTemperaturaPrincipal.Font = new System.Drawing.Font("Segoe UI Semibold", 120F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperaturaPrincipal.Font = new System.Drawing.Font("Segoe UI", 120F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTemperaturaPrincipal.ForeColor = System.Drawing.Color.Black;
             this.lblTemperaturaPrincipal.Location = new System.Drawing.Point(333, 54);
             this.lblTemperaturaPrincipal.Name = "lblTemperaturaPrincipal";
-            this.lblTemperaturaPrincipal.Size = new System.Drawing.Size(356, 425);
+            this.lblTemperaturaPrincipal.Size = new System.Drawing.Size(351, 425);
             this.lblTemperaturaPrincipal.TabIndex = 4;
             this.lblTemperaturaPrincipal.Text = "0";
             // 
@@ -228,7 +228,7 @@ partial class FormClima
             this.lblSensacionTermina.AutoSize = true;
             this.lblSensacionTermina.BackColor = System.Drawing.Color.Transparent;
             this.lblSensacionTermina.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSensacionTermina.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblSensacionTermina.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblSensacionTermina.Location = new System.Drawing.Point(58, 117);
             this.lblSensacionTermina.Name = "lblSensacionTermina";
             this.lblSensacionTermina.Size = new System.Drawing.Size(336, 50);
@@ -240,7 +240,7 @@ partial class FormClima
             this.lblPresion.AutoSize = true;
             this.lblPresion.BackColor = System.Drawing.Color.Transparent;
             this.lblPresion.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresion.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblPresion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPresion.Location = new System.Drawing.Point(58, 217);
             this.lblPresion.Name = "lblPresion";
             this.lblPresion.Size = new System.Drawing.Size(148, 50);
@@ -252,7 +252,7 @@ partial class FormClima
             this.lblVelocidadviento.AutoSize = true;
             this.lblVelocidadviento.BackColor = System.Drawing.Color.Transparent;
             this.lblVelocidadviento.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVelocidadviento.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblVelocidadviento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblVelocidadviento.Location = new System.Drawing.Point(58, 317);
             this.lblVelocidadviento.Name = "lblVelocidadviento";
             this.lblVelocidadviento.Size = new System.Drawing.Size(364, 50);
@@ -264,7 +264,7 @@ partial class FormClima
             this.lblProbabilidadLluvia.AutoSize = true;
             this.lblProbabilidadLluvia.BackColor = System.Drawing.Color.Transparent;
             this.lblProbabilidadLluvia.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProbabilidadLluvia.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblProbabilidadLluvia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblProbabilidadLluvia.Location = new System.Drawing.Point(367, 117);
             this.lblProbabilidadLluvia.Name = "lblProbabilidadLluvia";
             this.lblProbabilidadLluvia.Size = new System.Drawing.Size(388, 50);
@@ -276,7 +276,7 @@ partial class FormClima
             this.lblPuntoRocio.AutoSize = true;
             this.lblPuntoRocio.BackColor = System.Drawing.Color.Transparent;
             this.lblPuntoRocio.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPuntoRocio.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblPuntoRocio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPuntoRocio.Location = new System.Drawing.Point(367, 217);
             this.lblPuntoRocio.Name = "lblPuntoRocio";
             this.lblPuntoRocio.Size = new System.Drawing.Size(228, 50);
@@ -288,7 +288,7 @@ partial class FormClima
             this.lblDireccionViento.AutoSize = true;
             this.lblDireccionViento.BackColor = System.Drawing.Color.Transparent;
             this.lblDireccionViento.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccionViento.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblDireccionViento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblDireccionViento.Location = new System.Drawing.Point(367, 317);
             this.lblDireccionViento.Name = "lblDireccionViento";
             this.lblDireccionViento.Size = new System.Drawing.Size(359, 50);
@@ -300,7 +300,7 @@ partial class FormClima
             this.lblHumedad.AutoSize = true;
             this.lblHumedad.BackColor = System.Drawing.Color.Transparent;
             this.lblHumedad.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHumedad.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblHumedad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblHumedad.Location = new System.Drawing.Point(737, 117);
             this.lblHumedad.Name = "lblHumedad";
             this.lblHumedad.Size = new System.Drawing.Size(187, 50);
@@ -312,7 +312,7 @@ partial class FormClima
             this.lblIndiceUV.AutoSize = true;
             this.lblIndiceUV.BackColor = System.Drawing.Color.Transparent;
             this.lblIndiceUV.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIndiceUV.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblIndiceUV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblIndiceUV.Location = new System.Drawing.Point(737, 217);
             this.lblIndiceUV.Name = "lblIndiceUV";
             this.lblIndiceUV.Size = new System.Drawing.Size(184, 50);
@@ -324,7 +324,7 @@ partial class FormClima
             this.lblVisibilidad.AutoSize = true;
             this.lblVisibilidad.BackColor = System.Drawing.Color.Transparent;
             this.lblVisibilidad.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVisibilidad.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblVisibilidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblVisibilidad.Location = new System.Drawing.Point(737, 317);
             this.lblVisibilidad.Name = "lblVisibilidad";
             this.lblVisibilidad.Size = new System.Drawing.Size(207, 50);
@@ -394,7 +394,7 @@ partial class FormClima
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(58, 402);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(272, 50);

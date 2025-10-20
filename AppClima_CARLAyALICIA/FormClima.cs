@@ -40,7 +40,6 @@ public partial class FormClima : Form
 
     private void ConfigurarInterfaz()
     {
-        this.BackColor = Color.FromArgb(0, 122, 255);
         this.StartPosition = FormStartPosition.CenterScreen;
         this.FormBorderStyle = FormBorderStyle.None;
 
@@ -96,7 +95,6 @@ public partial class FormClima : Form
         }
         catch (Exception ex)
         {
-            lblUbicacion.Text = "Error cargando datos";
             Console.WriteLine($"Error: {ex.Message}");
         }
     }
@@ -130,7 +128,7 @@ public partial class FormClima : Form
    
     private string ObtenerDescripcionClima()
     {
-        if (calculador == null) return "Cargando...";
+        if (calculador == null) return "Cargando";
 
         var temp = calculador.CalcularTemperaturaMedia();
         var humedad = calculador.CalcularHumedadRelativaMedia();
@@ -138,15 +136,13 @@ public partial class FormClima : Form
 
         if (lluvia > 5) return "Lluvia intensa";
         if (lluvia > 1) return "Lluvia ligera";
-        if (humedad > 80) return "Húmedo";
+        if (humedad > 80) return "Humedo";
         if (temp > 30) return "Soleado";
         return "Despejado";
     }
 
     private double CalcularProbabilidadLluvia()
     {
-        if (calculador == null) return 0;
-
         var humedad = calculador.CalcularHumedadRelativaMedia();
         var presion = calculador.CalcularPresionAtmosfericaMedia();
 
@@ -170,8 +166,6 @@ public partial class FormClima : Form
 
     private string ObtenerCalidadAireTexto(Dictionary<string, double> calidadAire)
     {
-        if (!calidadAire.Any()) return "Sin datos";
-
         var pm25 = calidadAire.ContainsKey("PM2.5") ? calidadAire["PM2.5"] : 0;
 
         if (pm25 < 12) return "La calidad de aire es buena";
@@ -287,9 +281,8 @@ public partial class FormClima : Form
         btnCerrar.FlatAppearance.BorderSize = 0;
         btnCerrar.BackColor = Color.Transparent;
         btnCerrar.ForeColor = Color.White;
-        btnCerrar.Text = "✕"; // o "X"
+        btnCerrar.Text = "X"; 
         btnCerrar.Font = new Font("Arial", 14, FontStyle.Bold);
-        btnCerrar.Cursor = Cursors.Hand;
 
         btnCerrar.FlatAppearance.MouseOverBackColor = Color.Transparent;
         btnCerrar.FlatAppearance.MouseDownBackColor = Color.Transparent;

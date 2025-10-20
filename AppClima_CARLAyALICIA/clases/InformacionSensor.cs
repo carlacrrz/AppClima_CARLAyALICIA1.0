@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-//esta clase es para obtener la info de los sensores q vienen en la api, el id, modelo q seria el nombre del sensor y variables q miden
 public class InformacionSensor
 {
     [JsonPropertyName("id")]
@@ -15,7 +14,6 @@ public class InformacionSensor
     public List<string> Variables { get; set; }
 }
 
-//esta clase es para obtener los datos del sensor ahora si todas las varibales q lleva
 public class Muestra
 {
     [JsonPropertyName("sensor_id")]
@@ -34,7 +32,6 @@ public class Muestra
     public DateTime FechaHora { get; set; }
 }
 
-//esta clase es para obtener todas las muestras q vienen en la api
 public class Muestras
 {
     [JsonPropertyName("data")]
