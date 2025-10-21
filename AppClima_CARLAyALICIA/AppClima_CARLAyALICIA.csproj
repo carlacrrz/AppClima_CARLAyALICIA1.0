@@ -132,11 +132,16 @@
     <Content Include="bin\Debug\iconos\gota-de-rocio.png" />
     <Content Include="bin\Debug\iconos\hoja.png" />
     <Content Include="bin\Debug\iconos\humedad.png" />
+    <Content Include="bin\Debug\iconos\humedadd.png" />
     <Content Include="bin\Debug\iconos\Image1.png" />
     <Content Include="bin\Debug\iconos\indice-uv.png" />
     <Content Include="bin\Debug\iconos\lluvia.png" />
+    <Content Include="bin\Debug\iconos\lluviad.png" />
     <Content Include="bin\Debug\iconos\medir.png" />
+    <Content Include="bin\Debug\iconos\nubladod.png" />
+    <Content Include="bin\Debug\iconos\parcialmente-nublado.png" />
     <Content Include="bin\Debug\iconos\rocio.png" />
+    <Content Include="bin\Debug\iconos\sold.png" />
     <Content Include="bin\Debug\iconos\termostato.png" />
     <Content Include="bin\Debug\iconos\ultravioleta.png" />
     <Content Include="bin\Debug\iconos\ventoso.png" />

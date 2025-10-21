@@ -31,6 +31,7 @@ public partial class FormClima : Form
         cliente = new ClienteCalidadAire();
         muestrasActuales = new List<Muestra>();
         ConfigurarInterfaz();
+
         ConfigurarTimer();
         ConfigurarEventos();
         CargarDatosIniciales();
@@ -38,29 +39,39 @@ public partial class FormClima : Form
         ConfigurarLabelCentrado();
         CrearPictureBoxIcono();
 
-        this.Load += (s, e) => AgregarIconosSencillos();
+        this.Load += (s, e) =>
+        {
+            AgregarIconosSencillos();
+            CentrarDescripcionClima();
+        };
+
+        this.Resize += (s, e) => CentrarDescripcionClima();
 
 
-        Panel[] paneles = { panel1,panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9, panel10};
+        Panel[] paneles = { panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9, panel10, panelRecomendaciones };
 
         foreach (Panel panel in paneles)
         {
             panel.BorderStyle = BorderStyle.None;
-            panel.BackColor = Color.FromArgb(10, 255, 165, 0);
+            panel.BackColor = Color.FromArgb(235, 235, 235);
             panel.Padding = new Padding(0);
             panel.Margin = new Padding(0);
         }
 
+        ConfigurarPanelRecomendaciones();
+
     }
 
     private void ConfigurarInterfaz()
-    {   
+    {
         this.StartPosition = FormStartPosition.CenterScreen;
         this.FormBorderStyle = FormBorderStyle.None;
 
         ConfigurarBordesRedondos();
         this.Resize += (s, e) => ConfigurarBordesRedondos();
+
     }
+
 
     private void CrearPictureBoxIcono()
     {
@@ -75,7 +86,7 @@ public partial class FormClima : Form
         pictureBoxIconoClima.SizeMode = PictureBoxSizeMode.Zoom;
         pictureBoxIconoClima.BackColor = Color.Transparent;
 
-        
+
         this.Controls.Add(pictureBoxIconoClima);
         pictureBoxIconoClima.BringToFront();
     }
@@ -87,6 +98,7 @@ public partial class FormClima : Form
 
         HacerBordesRedondos(panelEstadisticas, 20);
         HacerBordesRedondos(panelCalidadAire, 20);
+        HacerBordesRedondos(btnCerrar, 17);
         HacerBordesRedondos(panel1, 60);
         HacerBordesRedondos(panel2, 60);
         HacerBordesRedondos(panel3, 60);
@@ -97,6 +109,7 @@ public partial class FormClima : Form
         HacerBordesRedondos(panel8, 60);
         HacerBordesRedondos(panel9, 60);
         HacerBordesRedondos(panel10, 60);
+        HacerBordesRedondos(panelRecomendaciones, 60);
     }
 
     private void HacerBordesRedondos(Control control, int radio)
@@ -152,7 +165,7 @@ public partial class FormClima : Form
         lblMaxMin.Text = (calculador.CalcularTemperaturaMedia() + 2).ToString("Maxima: 0") + "° / " + (calculador.CalcularTemperaturaMedia() - 2).ToString("Minima: 0") + "°";
 
         lblSensacionTermicaValor.Text = calculador.CalcularIndiceCalor().ToString("F1") + "°";
-        lblProbabilidadLluviaValor.Text = CalcularProbabilidadLluvia().ToString("F0") + "%";
+        lblProbabilidadLluviaValor.Text = calculador.CalcularProbabilidadLluvia().ToString("F0") + "%";
         lblHumedadValor.Text = calculador.CalcularHumedadRelativaMedia().ToString("F0") + "%";
         lblPresionValor.Text = calculador.CalcularPresionAtmosfericaMedia().ToString("F0") + " hPa";
         lblPuntoRocioValor.Text = calculador.CalcularPuntoRocio().ToString("F1") + "°";
@@ -166,16 +179,16 @@ public partial class FormClima : Form
         lblIndiceCalidadAire.Text = CalcularICA(calidadAire).ToString("F0");
 
         ActualizarColoresCalidadAire(calidadAire);
+
+        var recomendaciones = calculador.ObtenerRecomendaciones();
+        MostrarRecomendaciones(recomendaciones);
+
+        CentrarDescripcionClima();
     }
 
-   
+
     private string ObtenerDescripcionClima()
     {
-        if (calculador == null)
-        {
-            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
-            return "Cargando...";
-        }
 
         var temp = calculador.CalcularTemperaturaMedia();
         var humedad = calculador.CalcularHumedadRelativaMedia();
@@ -187,50 +200,51 @@ public partial class FormClima : Form
 
         if (probabilidadLluvia > 60 || lluvia > 2)
         {
-            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+            ;
             return "Lluvia intensa";
         }
         else if (probabilidadLluvia > 15 || lluvia > 0.5)
         {
-            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
             return "Lluvia ligera";
         }
         else if (probabilidadLluvia > 0.5)
         {
-            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
             return "Parcialmente nublado";
         }
-        else if (humedad > 85)
+        else if (humedad > 85)  
         {
-            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
             return "Nublado";
         }
         else if (humedad > 70)
         {
-            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
             return "Húmedo";
         }
         else if (temp > 30)
         {
-            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
             return "Soleado";
         }
         else
         {
-            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
             return "Despejado";
+        }
+    }
+
+    private void CentrarDescripcionClima()
+    {
+        if (lblDescripcionClima.Parent != null)
+        {
+            lblDescripcionClima.TextAlign = ContentAlignment.MiddleCenter;
+            lblDescripcionClima.Anchor = AnchorStyles.None;
+
+            int x = (lblDescripcionClima.Parent.Width - lblDescripcionClima.Width) / 2;
+            lblDescripcionClima.Location = new Point(x, lblDescripcionClima.Location.Y);
         }
     }
 
     private double CalcularProbabilidadLluvia()
     {
-        var humedad = calculador.CalcularHumedadRelativaMedia();
-        var presion = calculador.CalcularPresionAtmosfericaMedia();
-
-        double probabilidad = (humedad - 50) * 1.2;
-        if (presion < 1010) probabilidad += 20;
-
-        return Math.Max(0, Math.Min(100, probabilidad));
+        if (calculador == null) return 0;
+        return calculador.CalcularProbabilidadLluvia();
     }
 
     private double CalcularVisibilidad()
@@ -284,18 +298,19 @@ public partial class FormClima : Form
     private void AgregarIconosSencillos()
     {
         var iconosMap = new Dictionary<string, string>
-    {
-        { "lblSensacionTermina", "termostato.png" },
-        { "lblProbabilidadLluvia", "lluvia.png" },
-        { "lblHumedad", "humedad.png" },
-        { "lblPresion", "medir.png" },
-        { "lblPuntoRocio", "rocio.png" },
-        { "lblIndiceUV", "indice-uv.png" },
-        { "lblVelocidadViento", "ventoso.png" },
-        { "lblDireccionViento", "direccion-del-viento.png" },
-        { "lblVisibilidad", "visibilidad.png" },
-        { "label1", "aire.png" }
-    };
+        {
+            { "lblSensacionTermina", "termostato.png" },
+            { "lblProbabilidadLluvia", "lluvia.png" },
+            { "lblHumedad", "humedad.png" },
+            { "lblPresion", "medir.png" },
+            { "lblPuntoRocio", "rocio.png" },
+            { "lblIndiceUV", "indice-uv.png" },
+            { "lblVelocidadViento", "ventoso.png" },
+            { "lblDireccionViento", "direccion-del-viento.png" },
+            { "lblVisibilidad", "visibilidad.png" },
+            { "label1", "aire.png" }
+        };
+    
 
         string carpetaIconos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "iconos");
 
@@ -315,6 +330,9 @@ public partial class FormClima : Form
         }
     }
 
+
+ 
+
     private void AgregarIconoALabel(Label label, string rutaIcono, string nombreLabel)
     {
         try
@@ -326,6 +344,8 @@ public partial class FormClima : Form
             icono.SizeMode = PictureBoxSizeMode.Zoom;
             icono.BackColor = Color.Transparent;
             icono.Image = Image.FromFile(rutaIcono);
+
+            icono.Location = new Point(label.Right, label.Top);
 
             label.Parent.Controls.Add(icono);
             icono.BringToFront();
@@ -362,7 +382,7 @@ public partial class FormClima : Form
         btnCerrar.FlatAppearance.BorderSize = 0;
         btnCerrar.BackColor = Color.Transparent;
         btnCerrar.ForeColor = Color.White;
-        btnCerrar.Text = "X"; 
+        btnCerrar.Text = "X";
         btnCerrar.Font = new Font("Arial", 14, FontStyle.Bold);
 
         btnCerrar.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -371,6 +391,54 @@ public partial class FormClima : Form
     private void btnCerrar_Click(object sender, EventArgs e)
     {
         Application.Exit();
+    }
+
+
+
+    private void MostrarRecomendaciones(List<string> recomendaciones)
+    {
+
+        flpRecomendaciones.Controls.Clear();
+
+        if (!recomendaciones.Any())
+        {
+            var lblSinRecomendaciones = new Label();
+            lblSinRecomendaciones.Text = "No hay recomendaciones específicas";
+            lblSinRecomendaciones.AutoSize = true;
+            flpRecomendaciones.Controls.Add(lblSinRecomendaciones);
+            return;
+        }
+
+        foreach (var recomendacion in recomendaciones.Take(3)) 
+        {
+            var lblRecomendacion = new Label();
+            lblRecomendacion.Text = $"• {recomendacion}" ;
+            lblRecomendacion.AutoSize = true;
+            lblRecomendacion.Margin = new Padding(0, 2, 0, 2);
+            lblRecomendacion.MaximumSize = new Size(550, 0);
+
+            flpRecomendaciones.Controls.Add(lblRecomendacion);
+        }
+
+        flpRecomendaciones.Refresh();
+    }
+
+    private void ConfigurarPanelRecomendaciones()
+    {
+        panelRecomendaciones.Size = new Size(603, 109);
+
+
+        lblRecomendacionesTitulo.Text = "Recomendaciones";
+        lblRecomendacionesTitulo.AutoSize = true;
+
+        flpRecomendaciones.Size = new Size(580, 60);
+        flpRecomendaciones.AutoScroll = true;
+        flpRecomendaciones.FlowDirection = FlowDirection.LeftToRight; 
+        flpRecomendaciones.WrapContents = false;
+        flpRecomendaciones.BackColor = Color.Transparent;
+        flpRecomendaciones.AutoSize = false;
+
+        HacerBordesRedondos(panelRecomendaciones, 15);
     }
 
     private void lblIndiceCalidadAire_Click(object sender, EventArgs e)
@@ -389,6 +457,26 @@ public partial class FormClima : Form
     }
 
     private void panel2_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void FormClima_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private void lblRecomendacionesTitulo_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void panelRecomendaciones_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void flpRecomendaciones_Paint(object sender, PaintEventArgs e)
     {
 
     }

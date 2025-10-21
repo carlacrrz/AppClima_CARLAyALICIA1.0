@@ -89,6 +89,19 @@ public class CalculadorMeteorologico
         return Math.Round(indiceCalor, 2);
     }
 
+    public double CalcularProbabilidadLluvia()
+    {
+        var humedad = CalcularHumedadRelativaMedia();
+        var presion = CalcularPresionAtmosfericaMedia();
+        var precipitacion = CalcularPrecipitacionAcumulada();
+
+        double probabilidad = (humedad - 50) * 1.2;
+        if (presion < 1010) probabilidad += 20;
+        if (precipitacion > 0) probabilidad += 30;
+
+        return Math.Max(0, Math.Min(100, probabilidad));
+    }
+
     public double CalcularPuntoRocio()
     {
         var temperatura = CalcularTemperaturaMedia();
@@ -135,5 +148,40 @@ public class CalculadorMeteorologico
         if (co.Any()) calidad.Add("CO", co.Average());
 
         return calidad;
+    }
+
+    public List<string> ObtenerRecomendaciones()
+    {
+        var recomendaciones = new List<string>();
+
+        var uv = CalcularIndiceUVMaximo();
+        if (uv > 6) recomendaciones.Add("Usa protector solar");
+        if (uv > 8) recomendaciones.Add("Usa lentes de sol");
+
+        var temp = CalcularTemperaturaMedia();
+        if (temp > 30)
+        {
+            recomendaciones.Add("Mantente hidratado");
+            recomendaciones.Add("Usa gorra o sombrero");
+        }
+        if (temp < 15) recomendaciones.Add("Usa chamarra abrigadora");
+
+        var lluvia = CalcularProbabilidadLluvia();
+        if (lluvia > 60) recomendaciones.Add("Lleva paraguas o impermeable");
+
+        var viento = CalcularVelocidadVientoMedia();
+        if (viento > 10) recomendaciones.Add("Ten cuidado con vientos fuertes");
+
+        var calidadAire = CalcularCalidadAire();
+        if (calidadAire.ContainsKey("PM2.5") && calidadAire["PM2.5"] > 35)
+            recomendaciones.Add(" Evita actividades al aire libre");
+
+        var humedad = CalcularHumedadRelativaMedia();
+        if (humedad > 85) recomendaciones.Add("Ropa cómoda por humedad");
+
+        if (!recomendaciones.Any())
+            recomendaciones.Add("Condiciones ideales para actividades al aire libre");
+
+        return recomendaciones;
     }
 }
