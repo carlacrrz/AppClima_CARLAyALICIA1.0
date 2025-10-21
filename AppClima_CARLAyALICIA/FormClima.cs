@@ -188,6 +188,7 @@ public partial class FormClima : Form
         if (probabilidadLluvia > 60 || lluvia > 2)
         {
             pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+                    ;
             return "Lluvia intensa";
         }
         else if (probabilidadLluvia > 15 || lluvia > 0.5)
@@ -389,6 +390,11 @@ public partial class FormClima : Form
     }
 
     private void panel2_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void FormClima_Load(object sender, EventArgs e)
     {
 
     }
