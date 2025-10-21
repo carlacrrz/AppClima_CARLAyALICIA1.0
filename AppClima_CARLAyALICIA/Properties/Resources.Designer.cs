@@ -89,5 +89,14 @@ namespace AppClima_CARLAyALICIA.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/clear-day.svg.
+        /// </summary>
+        internal static string sol {
+            get {
+                return ResourceManager.GetString("sol", resourceCulture);
+            }
+        }
     }
 }
