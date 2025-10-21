@@ -566,6 +566,7 @@ partial class FormClima
             this.Name = "FormClima";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "App de Clima";
+            this.Load += new System.EventHandler(this.FormClima_Load);
             this.panelEstadisticas.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
