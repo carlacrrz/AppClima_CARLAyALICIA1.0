@@ -10,9 +10,8 @@
 
 namespace AppClima_CARLAyALICIA.Properties {
     using System;
-    using System.Drawing;
-
-
+    
+    
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
     /// </summary>
@@ -24,7 +23,7 @@ namespace AppClima_CARLAyALICIA.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        internal static Image humedadd;
+        
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -32,7 +31,20 @@ namespace AppClima_CARLAyALICIA.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-       
+        
+        /// <summary>
+        ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AppClima_CARLAyALICIA.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
         
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
@@ -45,6 +57,26 @@ namespace AppClima_CARLAyALICIA.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clima_extremo {
+            get {
+                object obj = ResourceManager.GetObject("clima_extremo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dom {
+            get {
+                object obj = ResourceManager.GetObject("dom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -79,25 +111,32 @@ namespace AppClima_CARLAyALICIA.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/clear-day.svg.
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static string sol {
+        internal static System.Drawing.Bitmap hume {
             get {
-                return ResourceManager.GetString("sol", resourceCulture);
+                object obj = ResourceManager.GetObject("hume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
-
+        
         /// <summary>
-        ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        internal static System.Drawing.Bitmap lluvia_muy_fuerte {
             get {
-                if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AppClima_CARLAyALICIA.Properties.Resources", typeof(Resources).Assembly);
-                    resourceMan = temp;
-                }
-                return resourceMan;
+                object obj = ResourceManager.GetObject("lluvia_muy_fuerte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nublado {
+            get {
+                object obj = ResourceManager.GetObject("nublado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

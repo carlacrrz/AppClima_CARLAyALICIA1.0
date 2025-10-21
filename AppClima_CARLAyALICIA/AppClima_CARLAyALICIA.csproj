@@ -129,6 +129,8 @@
   <ItemGroup>
     <Content Include="bin\Debug\iconos\aire.png" />
     <Content Include="bin\Debug\iconos\direccion-del-viento.png" />
+    <Content Include="bin\Debug\iconos\estre.png" />
+    <Content Include="bin\Debug\iconos\estrella.png" />
     <Content Include="bin\Debug\iconos\gota-de-rocio.png" />
     <Content Include="bin\Debug\iconos\hoja.png" />
     <Content Include="bin\Debug\iconos\humedad.png" />
@@ -140,12 +142,18 @@
     <Content Include="bin\Debug\iconos\medir.png" />
     <Content Include="bin\Debug\iconos\nubladod.png" />
     <Content Include="bin\Debug\iconos\parcialmente-nublado.png" />
+    <Content Include="bin\Debug\iconos\recomendado.png" />
     <Content Include="bin\Debug\iconos\rocio.png" />
     <Content Include="bin\Debug\iconos\sold.png" />
     <Content Include="bin\Debug\iconos\termostato.png" />
     <Content Include="bin\Debug\iconos\ultravioleta.png" />
     <Content Include="bin\Debug\iconos\ventoso.png" />
     <Content Include="bin\Debug\iconos\visibilidad.png" />
+    <None Include="Resources\lluvia-muy-fuerte.png" />
+    <None Include="Resources\nublado.png" />
+    <None Include="Resources\hume.png" />
+    <None Include="Resources\dom.png" />
+    <None Include="Resources\clima-extremo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

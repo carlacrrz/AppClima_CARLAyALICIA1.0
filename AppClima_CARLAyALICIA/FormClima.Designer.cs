@@ -20,6 +20,7 @@ partial class FormClima
     private void InitializeComponent()
     {
             this.components = new System.ComponentModel.Container();
+            this.pictureBoxIconoClima = new System.Windows.Forms.PictureBox();
             this.lblCalidadAire = new System.Windows.Forms.Label();
             this.lblVisibilidadValor = new System.Windows.Forms.Label();
             this.lblVelocidadVientoValor = new System.Windows.Forms.Label();
@@ -62,6 +63,7 @@ partial class FormClima
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelCalidadAire = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIconoClima)).BeginInit();
             this.panelEstadisticas.SuspendLayout();
             this.panelRecomendaciones.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -76,6 +78,14 @@ partial class FormClima
             this.panel1.SuspendLayout();
             this.panelCalidadAire.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pictureBoxIconoClima
+            // 
+            this.pictureBoxIconoClima.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxIconoClima.Name = "pictureBoxIconoClima";
+            this.pictureBoxIconoClima.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxIconoClima.TabIndex = 0;
+            this.pictureBoxIconoClima.TabStop = false;
             // 
             // lblCalidadAire
             // 
@@ -319,7 +329,6 @@ partial class FormClima
             this.panelEstadisticas.Name = "panelEstadisticas";
             this.panelEstadisticas.Size = new System.Drawing.Size(951, 658);
             this.panelEstadisticas.TabIndex = 16;
-            this.panelEstadisticas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEstadisticas_Paint);
             // 
             // panelRecomendaciones
             // 
@@ -330,14 +339,13 @@ partial class FormClima
             this.panelRecomendaciones.Name = "panelRecomendaciones";
             this.panelRecomendaciones.Size = new System.Drawing.Size(603, 109);
             this.panelRecomendaciones.TabIndex = 32;
-            this.panelRecomendaciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRecomendaciones_Paint);
             // 
             // flpRecomendaciones
             // 
             this.flpRecomendaciones.BackColor = System.Drawing.Color.Transparent;
             this.flpRecomendaciones.Font = new System.Drawing.Font("Segoe UI Semibold", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flpRecomendaciones.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.flpRecomendaciones.Location = new System.Drawing.Point(25, 48);
+            this.flpRecomendaciones.Location = new System.Drawing.Point(25, 59);
             this.flpRecomendaciones.Name = "flpRecomendaciones";
             this.flpRecomendaciones.Size = new System.Drawing.Size(401, 73);
             this.flpRecomendaciones.TabIndex = 19;
@@ -353,7 +361,6 @@ partial class FormClima
             this.lblRecomendacionesTitulo.Size = new System.Drawing.Size(326, 50);
             this.lblRecomendacionesTitulo.TabIndex = 18;
             this.lblRecomendacionesTitulo.Text = "Recomendaciones";
-            this.lblRecomendacionesTitulo.Click += new System.EventHandler(this.lblRecomendacionesTitulo_Click);
             // 
             // panel10
             // 
@@ -515,7 +522,6 @@ partial class FormClima
             this.label1.Size = new System.Drawing.Size(272, 50);
             this.label1.TabIndex = 17;
             this.label1.Text = "Calidad de aire";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblIndiceCalidadAire
             // 
@@ -549,7 +555,6 @@ partial class FormClima
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(305, 103);
             this.panel2.TabIndex = 25;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel1
             // 
@@ -580,7 +585,7 @@ partial class FormClima
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.BackgroundImage = global::AppClima_CARLAyALICIA.Properties.Resources.foto21;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(947, 939);
+            this.ClientSize = new System.Drawing.Size(946, 939);
             this.Controls.Add(this.panelCalidadAire);
             this.Controls.Add(this.lblMaxMin);
             this.Controls.Add(this.lblDescripcionClima);
@@ -594,7 +599,7 @@ partial class FormClima
             this.Name = "FormClima";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "App de Clima";
-            this.Load += new System.EventHandler(this.FormClima_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIconoClima)).EndInit();
             this.panelEstadisticas.ResumeLayout(false);
             this.panelRecomendaciones.ResumeLayout(false);
             this.panelRecomendaciones.PerformLayout();
@@ -668,4 +673,6 @@ partial class FormClima
     private Label lblRecomendacionesTitulo;
     private Panel panelRecomendaciones;
     private FlowLayoutPanel flpRecomendaciones;
+
+
 }

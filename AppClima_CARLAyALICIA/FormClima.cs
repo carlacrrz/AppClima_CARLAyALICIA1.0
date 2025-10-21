@@ -37,7 +37,6 @@ public partial class FormClima : Form
         CargarDatosIniciales();
         ConfigurarBotonCerrar();
         ConfigurarLabelCentrado();
-        CrearPictureBoxIcono();
 
         this.Load += (s, e) =>
         {
@@ -60,8 +59,8 @@ public partial class FormClima : Form
 
         ConfigurarPanelRecomendaciones();
 
-    }
 
+    }
     private void ConfigurarInterfaz()
     {
         this.StartPosition = FormStartPosition.CenterScreen;
@@ -73,23 +72,6 @@ public partial class FormClima : Form
     }
 
 
-    private void CrearPictureBoxIcono()
-    {
-        pictureBoxIconoClima = new PictureBox();
-        pictureBoxIconoClima.Name = "pictureBoxIconoClima";
-        pictureBoxIconoClima.Size = new Size(50, 50);
-
-        pictureBoxIconoClima.Location = new Point(
-            lblDescripcionClima.Left - 60,
-            lblDescripcionClima.Top - 5
-        );
-        pictureBoxIconoClima.SizeMode = PictureBoxSizeMode.Zoom;
-        pictureBoxIconoClima.BackColor = Color.Transparent;
-
-
-        this.Controls.Add(pictureBoxIconoClima);
-        pictureBoxIconoClima.BringToFront();
-    }
 
     private void ConfigurarBordesRedondos()
     {
@@ -189,18 +171,13 @@ public partial class FormClima : Form
 
     private string ObtenerDescripcionClima()
     {
-
         var temp = calculador.CalcularTemperaturaMedia();
         var humedad = calculador.CalcularHumedadRelativaMedia();
         var lluvia = calculador.CalcularPrecipitacionAcumulada();
         var probabilidadLluvia = CalcularProbabilidadLluvia();
 
-
-
-
         if (probabilidadLluvia > 60 || lluvia > 2)
         {
-            ;
             return "Lluvia intensa";
         }
         else if (probabilidadLluvia > 15 || lluvia > 0.5)
@@ -308,7 +285,9 @@ public partial class FormClima : Form
             { "lblVelocidadViento", "ventoso.png" },
             { "lblDireccionViento", "direccion-del-viento.png" },
             { "lblVisibilidad", "visibilidad.png" },
-            { "label1", "aire.png" }
+            { "label1", "aire.png" },
+            { "lblRecomendacionesTitulo", "recomendado.png" }
+
         };
     
 
@@ -329,9 +308,6 @@ public partial class FormClima : Form
             }
         }
     }
-
-
- 
 
     private void AgregarIconoALabel(Label label, string rutaIcono, string nombreLabel)
     {
@@ -388,12 +364,11 @@ public partial class FormClima : Form
         btnCerrar.FlatAppearance.MouseOverBackColor = Color.Transparent;
         btnCerrar.FlatAppearance.MouseDownBackColor = Color.Transparent;
     }
+
     private void btnCerrar_Click(object sender, EventArgs e)
     {
         Application.Exit();
     }
-
-
 
     private void MostrarRecomendaciones(List<string> recomendaciones)
     {
@@ -441,43 +416,4 @@ public partial class FormClima : Form
         HacerBordesRedondos(panelRecomendaciones, 15);
     }
 
-    private void lblIndiceCalidadAire_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void panelEstadisticas_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void label1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void panel2_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void FormClima_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void lblRecomendacionesTitulo_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void panelRecomendaciones_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void flpRecomendaciones_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
 }
