@@ -54,6 +54,16 @@ public partial class FormClima : Form
 
         HacerBordesRedondos(panelEstadisticas, 20);
         HacerBordesRedondos(panelCalidadAire, 20);
+        HacerBordesRedondos(panelCalidad, 20);
+        HacerBordesRedondos(panelSensacion, 20);
+        HacerBordesRedondos(panelPresion, 20);
+        HacerBordesRedondos(panelVelocidad, 20);
+        HacerBordesRedondos(panelProbabilidad, 20);
+        HacerBordesRedondos(panelDireccion, 20);
+        HacerBordesRedondos(panelHumedad, 20);
+        HacerBordesRedondos(panelUV, 20);
+        HacerBordesRedondos(panelVisibilidad, 20);
+        HacerBordesRedondos(panelRocio, 20);
         HacerBordesRedondos(btnCerrar, 17);
     }
 
@@ -303,6 +313,11 @@ public partial class FormClima : Form
     }
 
     private void label1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void lblPresionValor_Click(object sender, EventArgs e)
     {
 
     }
