@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -20,6 +21,7 @@ public partial class FormClima : Form
     private CalculadorMeteorologico calculador;
     private Timer timerActualizacion;
     private List<Muestra> muestrasActuales;
+    private PictureBox pictureBoxIconoClima;
 
 
     public FormClima()
@@ -34,17 +36,48 @@ public partial class FormClima : Form
         CargarDatosIniciales();
         ConfigurarBotonCerrar();
         ConfigurarLabelCentrado();
+        CrearPictureBoxIcono();
 
         this.Load += (s, e) => AgregarIconosSencillos();
+
+
+        Panel[] paneles = { panel1,panel2, panel3, panel4, panel5, panel6, panel7, panel8, panel9, panel10};
+
+        foreach (Panel panel in paneles)
+        {
+            panel.BorderStyle = BorderStyle.None;
+            panel.BackColor = Color.FromArgb(10, 255, 165, 0);
+            panel.Padding = new Padding(0);
+            panel.Margin = new Padding(0);
+        }
+
     }
 
     private void ConfigurarInterfaz()
-    {
+    {   
         this.StartPosition = FormStartPosition.CenterScreen;
         this.FormBorderStyle = FormBorderStyle.None;
 
         ConfigurarBordesRedondos();
         this.Resize += (s, e) => ConfigurarBordesRedondos();
+    }
+
+    private void CrearPictureBoxIcono()
+    {
+        pictureBoxIconoClima = new PictureBox();
+        pictureBoxIconoClima.Name = "pictureBoxIconoClima";
+        pictureBoxIconoClima.Size = new Size(50, 50);
+
+        pictureBoxIconoClima.Location = new Point(
+            lblDescripcionClima.Left - 60,
+            lblDescripcionClima.Top - 5
+        );
+        pictureBoxIconoClima.SizeMode = PictureBoxSizeMode.Zoom;
+        pictureBoxIconoClima.BackColor = Color.Transparent;
+
+        
+        this.Controls.Add(pictureBoxIconoClima);
+        pictureBoxIconoClima.BringToFront();
     }
 
     private void ConfigurarBordesRedondos()
@@ -55,6 +88,16 @@ public partial class FormClima : Form
         HacerBordesRedondos(panelEstadisticas, 20);
         HacerBordesRedondos(panelCalidadAire, 20);
         HacerBordesRedondos(btnCerrar, 17);
+        HacerBordesRedondos(panel1, 60);
+        HacerBordesRedondos(panel2, 60);
+        HacerBordesRedondos(panel3, 60);
+        HacerBordesRedondos(panel4, 60);
+        HacerBordesRedondos(panel5, 60);
+        HacerBordesRedondos(panel6, 60);
+        HacerBordesRedondos(panel7, 60);
+        HacerBordesRedondos(panel8, 60);
+        HacerBordesRedondos(panel9, 60);
+        HacerBordesRedondos(panel10, 60);
     }
 
     private void HacerBordesRedondos(Control control, int radio)
@@ -69,6 +112,7 @@ public partial class FormClima : Form
         timerActualizacion.Tick += async (s, e) => await ActualizarDatos();
         timerActualizacion.Start();
     }
+
 
     private void ConfigurarEventos()
     {
@@ -128,17 +172,55 @@ public partial class FormClima : Form
    
     private string ObtenerDescripcionClima()
     {
-        if (calculador == null) return "Cargando";
+        if (calculador == null)
+        {
+            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+            return "Cargando...";
+        }
 
         var temp = calculador.CalcularTemperaturaMedia();
         var humedad = calculador.CalcularHumedadRelativaMedia();
         var lluvia = calculador.CalcularPrecipitacionAcumulada();
+        var probabilidadLluvia = CalcularProbabilidadLluvia();
 
-        if (lluvia > 5) return "Lluvia intensa";
-        if (lluvia > 1) return "Lluvia ligera";
-        if (humedad > 80) return "Humedo";
-        if (temp > 30) return "Soleado";
-        return "Despejado";
+
+
+
+        if (probabilidadLluvia > 60 || lluvia > 2)
+        {
+            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+            return "Lluvia intensa";
+        }
+        else if (probabilidadLluvia > 15 || lluvia > 0.5)
+        {
+            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+            return "Lluvia ligera";
+        }
+        else if (probabilidadLluvia > 0.5)
+        {
+            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+            return "Parcialmente nublado";
+        }
+        else if (humedad > 85)  // Condición específica para nublado
+        {
+            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+            return "Nublado";
+        }
+        else if (humedad > 70)
+        {
+            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+            return "Húmedo";
+        }
+        else if (temp > 30)
+        {
+            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+            return "Soleado";
+        }
+        else
+        {
+            pictureBoxIconoClima.Image = AppClima_CARLAyALICIA.Properties.Resources.foto1;
+            return "Despejado";
+        }
     }
 
     private double CalcularProbabilidadLluvia()
@@ -303,6 +385,11 @@ public partial class FormClima : Form
     }
 
     private void label1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void panel2_Paint(object sender, PaintEventArgs e)
     {
 
     }
